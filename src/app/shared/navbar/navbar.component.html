@@ -1,6 +1,6 @@
 <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
     <div class="container">
-        <a class="navbar-light mr-lg-5 btn btn-neutral btn-icon" [routerLink]="['/home']">
+        <a class="navbar-light mr-lg-5 btn btn-neutral btn-icon" [routerLink]="['/home-page']">
             Energy
         </a>
         <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
@@ -10,7 +10,7 @@
             <div class="navbar-collapse-header">
                 <div class="row">
                     <div class="col-6 collapse-brand btn btn-neutral btn-icon">
-                        <a [routerLink]="['/home']">
+                        <a [routerLink]="['/home-page']">
                             Energy
                         </a>
                     </div>
@@ -26,7 +26,7 @@
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
 
                 <li class="nav-item d-none d-lg-block ml-lg-4">
-                    <a class="nav-link nav-link-icon" data-toggle="tooltip">
+                    <a class="nav-link nav-link-icon" [routerLink]="['/user-profile']" data-toggle="tooltip">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
                         <span class="nav-link-inner--text d-lg-none"><a [routerLink]="['/user-profile']">Perfil</a></span>
                     </a>
