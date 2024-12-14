@@ -12,6 +12,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CarregamentoEnergiaComponent } from './carregamento-energia/carregamento-energia.component';
 import { DebitoDiretctoComponent } from './debito-diretcto/debito-diretcto.component';
+
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,8 @@ import { DebitoDiretctoComponent } from './debito-diretcto/debito-diretcto.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
