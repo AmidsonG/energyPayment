@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +9,17 @@ import { Location, PopStateEvent } from '@angular/common';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  isLoggedIn = false;
+
   public isCollapsed = true;
   private lastPoppedUrl: string | undefined;
   private yScrollStack: number[] = [];
 
-  constructor(public location: Location, private router: Router) {
+  constructor(public location: Location, private router: Router,  private userService: UserServiceService) {
+  }
+
+  logout(): void {
+    this.userService.logout();
   }
 
   ngOnInit() {
@@ -33,6 +40,16 @@ export class NavbarComponent implements OnInit {
     this.location.subscribe((ev: PopStateEvent) => {
       this.lastPoppedUrl = ev.url;
     });
+
+
+     // Verifica o token no localStorage
+     const token = localStorage.getItem('token');
+     this.isLoggedIn = !!token;
+ 
+     // Atualiza o estado de login com base na navegação
+     this.router.events.subscribe(() => {
+       this.isLoggedIn = this.router.url === '/carregamento';
+     });
   }
 
   isHome() {

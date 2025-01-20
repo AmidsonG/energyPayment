@@ -2,12 +2,12 @@ export interface User {
     id?: number;
     nome: string;
     sobrenome: string;
-    endereco?: string;
     telefone: string;
+    nif: string;
+    endereco: string;
+    numero_de_conta: string;
+    numero_do_contador  : string;
     email: string; // Email é obrigatório
     password: string; // Password é obrigatório
-    nif: string;
-    especializacao?: string; // O atributo é opcional
-    tipo_de_usuario: number;
     usuario_data?: any;
   }

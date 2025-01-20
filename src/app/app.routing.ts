@@ -6,6 +6,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CarregamentoEnergiaComponent } from './carregamento-energia/carregamento-energia.component';
 import { DebitoDiretctoComponent } from './debito-diretcto/debito-diretcto.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { HistoricoRecargasComponent } from './historico-recargas/historico-recargas.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,15 @@ const routes: Routes = [
     path:'debito-directo',
     component: DebitoDiretctoComponent
   },
+  {
+    path: 'editar-perfil',
+    component: EditarPerfilComponent
+  },
+  {
+    path: 'historico-recargas',
+    component: HistoricoRecargasComponent
+  },
+  { path: '**', redirectTo: '/login' }
 
 ];
 

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     const userDataString = localStorage.getItem('user');
     if (userDataString) {
       const userData = JSON.parse(userDataString);
-      this.redirectToUserPage(userData);
+      console.log(userData)
     }
   }
 
@@ -56,21 +56,21 @@ export class LoginComponent implements OnInit {
             // E-mail incorreto
             this.openSnackBar('Erro', 'E-mail incorreto. Por favor, verifique seu Email e tente novamente.', 'error');
           }
-          return error;
+          throw error;
         })
       ).subscribe(response => {
         // Armazenar o token no localStorage
         localStorage.setItem('token', response.key);
         // Redirecionar para a página apropriada com base nos dados do usuário
         localStorage.setItem('user', JSON.stringify({ ...response.usuario_data}));
-        localStorage.setItem('idUuser', response.usuario_data.tipo_de_entidade_id);
-        this.redirectToUserPage(response.usuario_data);
+        localStorage.setItem('idUuser', response.usuario_data.id);
+
+        this.router.navigate(['/carregamento']);
+        
       });
     }
   
 
-  private redirectToUserPage(userData: any): void {
-    this.router.navigate([userData.rota]);
-  }
+
 
 }

@@ -12,8 +12,12 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CarregamentoEnergiaComponent } from './carregamento-energia/carregamento-energia.component';
 import { DebitoDiretctoComponent } from './debito-diretcto/debito-diretcto.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { HistoricoRecargasComponent } from './historico-recargas/historico-recargas.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +28,19 @@ import { FormsModule } from '@angular/forms';
     SignupComponent,
     ProfileComponent,
     CarregamentoEnergiaComponent,
-    DebitoDiretctoComponent
+    DebitoDiretctoComponent,
+    EditarPerfilComponent,
+    
+    HistoricoRecargasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule 
+    MatSnackBarModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,46 +1,40 @@
 <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
     <div class="container">
         <a class="navbar-light mr-lg-5 btn btn-neutral btn-icon" [routerLink]="['/home-page']">
-            Energy
-        </a>
+        Energy
+      </a>
         <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <span class="navbar-toggler-icon"></span>
+      </button>
         <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
-            <div class="navbar-collapse-header">
-                <div class="row">
-                    <div class="col-6 collapse-brand btn btn-neutral btn-icon">
-                        <a [routerLink]="['/home-page']">
-                            Energy
-                        </a>
-                    </div>
-                    <div class="col-6 collapse-close">
-                        <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
-              <span></span>
-              <span></span>
-            </button>
-                    </div>
-                </div>
-            </div>
-
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
 
-                <li class="nav-item d-none d-lg-block ml-lg-4">
+                <!-- Esconder o menu de Login, Registro e Perfil após o login -->
+                <li class="nav-item d-none d-lg-block ml-lg-4" *ngIf="isLoggedIn">
                     <a class="nav-link nav-link-icon" [routerLink]="['/user-profile']" data-toggle="tooltip">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
                         <span class="nav-link-inner--text d-lg-none"><a [routerLink]="['/user-profile']">Perfil</a></span>
                     </a>
                 </li>
-                <li class="nav-item d-none d-lg-block ml-lg-4 ">
+                <li class="nav-item d-none d-lg-block ml-lg-4" *ngIf="isLoggedIn">
+                    <a class="nav-link nav-link-icon" (click)="logout()" data-toggle="tooltip">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span class="nav-link-inner--text d-lg-none"><a [routerLink]="['/home-page']">Home</a></span>
+                    </a>
+                </li>
 
+
+                <li class="nav-item d-none d-lg-block ml-lg-4" *ngIf="!isLoggedIn">
                     <span><a style="color:white" [routerLink]="['/login']">Login</a></span>
                 </li>
-                <li class="nav-item d-none d-lg-block ml-lg-4">
+
+                <li class="nav-item d-none d-lg-block ml-lg-4" *ngIf="!isLoggedIn">
                     <a class="btn btn-neutral btn-icon">
                         <span class="btn-inner--icon"></span>
                         <span><a [routerLink]="['/register']">Registrar</a></span>
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>

@@ -45,20 +45,17 @@
                         </div>
                     </div>
                     <div class="text-center mt-5">
-                        <h3>Jessica Jones
-                            <span class="font-weight-light">, 27</span>
-                        </h3>
+                        <h3>{{this.userData.nome}} {{this.userData.sobrenome}}</h3>
                         <div class="container mt-5">
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                     <div class="form-group text-center">
-                                        <input type="text" placeholder="Regular" class="form-control w-100" />
-                                        <button class="btn btn-primary mt-3" type="button">Button</button>
+                                        <input type="text" placeholder="Digite o código do seu Carregamento" class="form-control w-100" [(ngModel)]="carregaEnergia" name="carregaEnergia" />
+                                        <button class="btn btn-primary mt-3" type="button" (click)="carregarEneria()">Carregar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

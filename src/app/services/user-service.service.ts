@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 import Swal from 'sweetalert2';
 import { User } from '../user/user.model';
 import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +16,7 @@ export class UserServiceService {
   private _userSubject = new BehaviorSubject<any>(null);
   user$ = this._userSubject.asObservable();
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient, private router: Router) {
+  constructor(private snackBar: MatSnackBar, private http: HttpClient, private router: Router) {  
     const userDataString = localStorage.getItem('user');
     if (userDataString) {
       const userData = JSON.parse(userDataString);
@@ -25,11 +26,9 @@ export class UserServiceService {
   }
 
 
-  showMessage(msg: string): void {
-    this.snackBar.open(msg, 'X', {
+  showMessage(message: string): void {
+    this.snackBar.open(message, 'Fechar', {
       duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top'
     });
   }
 
@@ -47,6 +46,7 @@ export class UserServiceService {
   private storeUserData(response: any): void {
     localStorage.setItem('token', response.key);
     localStorage.setItem('user', JSON.stringify(response.usuario_data));
+    localStorage.setItem('idUser', response.usuario_data.id);
   }
 
   create(user: User): Observable<any> {
@@ -72,7 +72,7 @@ export class UserServiceService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.post(`${environment.API_URL}/dj-rest-auth/login/`, user, { headers }).pipe(
+    return this.http.post(`${environment.API_URL}login/`, user, { headers }).pipe(
       tap(response => this.handleLoginResponse(response)),
     );
   }
@@ -88,13 +88,7 @@ export class UserServiceService {
     this.router.navigate(['/login']);
   }
 
-  getMenu(id:number): Observable<any>{
-    return this.http.get<any>(`${environment.API_URL}/menus/?id_do_usuario=`+ id);
-  }
 
-  getTipoUsuarios(): Observable<any>{
-    return this.http.get<any>(`${environment.API_URL}/tipo-usuario/`);
-  }
 
 
   forgotPassword(user: any): Observable<any> {
@@ -135,16 +129,6 @@ export class UserServiceService {
       })
     );
 }
-
-
-
-  getUserType(): string | null {
-    const user = this._userSubject.value;
-    if (user && user.tipo_de_entidade) {
-      return user.tipo_de_entidade;
-    }
-    return null;
-  }
 
   Usuario(usuarioId: number): Observable<User> {
     return this.http.get<User>(`${environment.API_URL}/usuario/${usuarioId}/`).pipe(
