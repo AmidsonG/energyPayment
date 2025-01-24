@@ -9,15 +9,17 @@ import { CarregarEnergiaService } from '../services/carregar-energia.service';
 export class CarregamentoEnergiaComponent implements OnInit {
   userData: any;
   carregaEnergia?: number ;
+  recargas: any;
 
   constructor( private carregarEnergiaService: CarregarEnergiaService) {
     const user = localStorage.getItem('user');
 		this.userData = JSON.parse(String(user));
-    console.log('idUser:',this.userData.nome)
+  
 
   }
 
   ngOnInit(): void {
+    this.getTotalRecargas();
   }
 
   carregarEneria(){
@@ -26,6 +28,14 @@ export class CarregamentoEnergiaComponent implements OnInit {
       codigo_da_recarga: this.carregaEnergia,
     }
     this.carregarEnergiaService.carregarEnergia(params).subscribe();
+  }
+
+  getTotalRecargas(){
+    this.carregarEnergiaService.totalDeRecargas(this.userData.id).subscribe({
+      next:(res:any) =>{
+        this.recargas = res;
+      }
+    })
   }
 
 }

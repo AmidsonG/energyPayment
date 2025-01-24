@@ -15,5 +15,9 @@ export class CarregarEnergiaService {
     return this.http.post(`${environment.API_URL}carregar-recarga/`, numeroRecarcaga)
   }
 
+  totalDeRecargas(idUser: number){
+    return this.http.get(`${environment.API_URL}total-de-carregamentos-usuario/?usuario=${idUser}`)
+  }
+
   
 }
