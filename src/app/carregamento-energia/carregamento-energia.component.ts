@@ -16,8 +16,6 @@ export class CarregamentoEnergiaComponent implements OnInit {
   constructor( private carregarEnergiaService: CarregarEnergiaService) {
     const user = localStorage.getItem('user');
 		this.userData = JSON.parse(String(user));
-  
-
   }
 
   ngOnInit(): void {
@@ -40,7 +38,6 @@ export class CarregamentoEnergiaComponent implements OnInit {
         this.CameraAdicionado = false;
         this.erroAoAdicionarCamera = true;
       }
-
     );
   }
 
@@ -51,5 +48,4 @@ export class CarregamentoEnergiaComponent implements OnInit {
       }
     })
   }
-
 }

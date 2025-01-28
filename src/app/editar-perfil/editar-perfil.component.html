@@ -1,37 +1,71 @@
-<div class=" content ">
-    <div class="container">
-        <div class="container mb-5">
-            <!-- Inputs -->
-            <h3 class="h4 text-success font-weight-bold mb-4">Inputs</h3>
-            <div class="mb-3">
-                <small class="text-uppercase font-weight-bold">Form controls</small>
+<div class="content">
+    <div class="container mt-5">
+        <div class="container">
+            <div class="mb-5">
+                <small class="text-uppercase font-weight-bold">Editar perfil</small>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-6">
+                <!-- Linha 1 -->
+                <div class="col-lg-4 col-sm-8">
                     <div class="form-group">
-                        <input type="text" placeholder="Regular" class="form-control form-control-alternative" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Regular" class="form-control form-control-alternative" />
+                        <input type="text" placeholder="Nome" class="form-control form-control-alternative" [(ngModel)]='nome' name="nome" />
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-8">
                     <div class="form-group">
-                        <input type="text" placeholder="Regular" class="form-control form-control-alternative" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Regular" class="form-control form-control-alternative" />
+                        <input type="text" placeholder="Sobrenome" class="form-control form-control-alternative" [(ngModel)]='sobrenome' name="sobrenome" />
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-8">
                     <div class="form-group">
-                        <input type="text" placeholder="Regular" class="form-control form-control-alternative" />
+                        <input type="text" placeholder="NIF" class="form-control form-control-alternative" [(ngModel)]='nif' name="nif" />
                     </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-8">
                     <div class="form-group">
-                        <input type="text" placeholder="Regular" class="form-control form-control-alternative" />
+                        <input type="password" placeholder="Password" class="form-control form-control-alternative" [(ngModel)]='password' name="password" />
+                    </div>
+                </div>
+
+
+                <!-- Linha 2 -->
+                <div class="col-lg-4 col-sm-8">
+                    <div class="form-group">
+                        <input type="text" placeholder="ex. 930356654" class="form-control form-control-alternative" [(ngModel)]='telefone' name="telefone" />
+                    </div>
+                </div>
+                <div class=" col-lg-4 col-sm-8 ">
+                    <div class="form-group ">
+                        <input type="text " placeholder="Endereço " class="form-control form-control-alternative " [(ngModel)]='endereco' name="endereco " />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-8 ">
+                    <div class="form-group ">
+                        <input type="text " placeholder="Email " class="form-control form-control-alternative " [(ngModel)]='email' name="email " />
+                    </div>
+                </div>
+
+                <!-- Linha 3 -->
+                <div class="col-lg-4 col-sm-8 ">
+                    <div class="form-group ">
+                        <input type="text " placeholder="Número de Conta " class="form-control form-control-alternative " [(ngModel)]='numeroDeConta' name="numeroDeConta " />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-8 ">
+                    <div class="form-group ">
+                        <input type="text " placeholder="Número de Contador " class="form-control form-control-alternative " [(ngModel)]='numeroDeContador' name="numeroDeContador " />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-8 ">
+                    <div class="form-group ">
+                        <input type="text " placeholder="Observações " class="form-control form-control-alternative " />
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="text-center ">
+            <button type="submit " class="btn btn-primary mt-4 " (click)=" actualizarPerfil() ">Actualizar</button>
         </div>
     </div>
 </div>
