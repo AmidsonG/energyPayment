@@ -141,7 +141,7 @@ export class UserServiceService {
   }
 
   updateUser(id: number, user: any){
-    return this.http.put(`${environment.API_URL}/usuario/${id}/`, user);
+    return this.http.put(`${environment.API_URL}usuario/${id}/`, user);
   }
 
 }
