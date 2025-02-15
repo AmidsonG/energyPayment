@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 })
 export class CarregamentoEnergiaComponent implements OnInit {
   userData: any;
-  carregaEnergia?: number ;
+  carregaEnergia: any ;
   recargas: any;
   CameraAdicionado: boolean = false;
   erroAoAdicionarCamera: boolean = false;
