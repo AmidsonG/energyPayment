@@ -55,17 +55,7 @@ export class CarregamentoEnergiaComponent implements OnInit {
   }
 
   validateNumberInput(event: any) {
-    // Recupera o valor do campo de input
-    const inputValue = event.target.value;
-    
-    // Verifica se o valor contém apenas números
-    if (/[^0-9]/.test(inputValue)) { // Se houver algo que não seja número
-      Swal.fire('Erro', 'Digite apenas números', 'error'); // Exibe a mensagem de erro
-      // Remove tudo que não for número
-      this.carregaEnergia = inputValue.replace(/\D/g, ''); 
-    } else {
-      // Se for um número válido, apenas atualiza o modelo com o valor atual
-      this.carregaEnergia = inputValue;
-    }
+    // Permite apenas números no input
+    this.carregaEnergia = event.target.value.replace(/\D/g, '');
   }
 }
