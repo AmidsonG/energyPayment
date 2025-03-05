@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: "http://emhtcellotyoasg.clouds2africa.com:1824/"
+  API_URL: "http://102.219.126.94:8000/"
 };
 
 /*
