@@ -53,7 +53,7 @@ export class UserServiceService {
     if (!user.email || !user.password) {
       return throwError('Email e senha são campos obrigatórios.');
     }
-    return this.http.post(`${environment.API_URL}/usuario/`, user).pipe(
+    return this.http.post(`${environment.API_URL}usuario/`, user).pipe(
       catchError(error => {
         let errorMessage = 'Erro ao criar usuário.';
         if (error.error && error.error.email) {
@@ -131,7 +131,7 @@ export class UserServiceService {
 }
 
   Usuario(usuarioId: number): Observable<User> {
-    return this.http.get<User>(`${environment.API_URL}/usuario/${usuarioId}/`).pipe(
+    return this.http.get<User>(`${environment.API_URL}usuario/${usuarioId}/`).pipe(
       catchError(error => {
         // Tratar o erro conforme necessário, por exemplo:
         console.error('Ocorreu um erro ao obter os dados do usuário:', error);
